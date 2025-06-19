@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 COSMIC UNIVERSE + PIXEL ART 🎨</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #000;
+            color: white;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            cursor: none;
+        }
+        
+        #universe {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            overflow: hidden;
+        }
+        
+        #customCursor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #fff 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            box-shadow: 0 0 20px #fff, 0 0 40px #4ecdc4, 0 0 60px #ff6b6b;
+            animation: cursorPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes cursorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .planet:hover {
+            transform: scale(1.2) !important;
+            filter: brightness(1.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .wormhole {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 30%, #4ecdc4 31%, transparent 32%, #ff6b6b 33%, transparent 34%);
+            animation: wormholeRotate 3s linear infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes wormholeRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .dimensional-rift {
+            position: absolute;
+            width: 200px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, #4ecdc4, #ffeaa7, transparent);
+            animation: riftPulse 2s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        @keyframes riftPulse {
+            0%, 100% { transform: scaleX(1) scaleY(1); opacity: 0.7; }
+            50% { transform: scaleX(1.5) scaleY(3); opacity: 1; }
+        }
+        
+        .energy-orb {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff 0%, #4ecdc4 50%, transparent 70%);
+            animation: orbFloat 4s ease-in-out infinite;
+            box-shadow: 0 0 30px #4ecdc4;
+        }
+        
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            25% { transform: translateY(-30px) scale(1.2); }
+            50% { transform: translateY(-15px) scale(0.8); }
+            75% { transform: translateY(-25px) scale(1.1); }
+        }
+        
+        .black-hole {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #000 0%, #1a1a2e 30%, transparent 70%);
+            animation: blackHolePull 5s ease-in-out infinite;
+            cursor: pointer;
+            box-shadow: 0 0 100px #4ecdc4;
+        }
+        
+        @keyframes blackHolePull {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 100px #4ecdc4; }
+            50% { transform: scale(1.3); box-shadow: 0 0 200px #ff6b6b, inset 0 0 50px #4ecdc4; }
+        }
+        
+        .galaxy {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(ellipse, #4ecdc4 0%, #ff6b6b 30%, transparent 70%);
+            border-radius: 50%;
+            animation: galaxyRotate 20s linear infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes galaxyRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .supernova {
+            position: absolute;
+            border-radius: 50%;
+            animation: supernovaExplosion 3s ease-out forwards;
+        }
+        
+        @keyframes supernovaExplosion {
+            0% { 
+                transform: scale(0); 
+                opacity: 1; 
+                background: radial-gradient(circle, #fff 0%, #ffeaa7 30%, #ff6b6b 60%, transparent 100%);
+                box-shadow: 0 0 50px #fff;
+            }
+            50% { 
+                transform: scale(5); 
+                opacity: 0.8;
+                box-shadow: 0 0 200px #ff6b6b, 0 0 400px #ffeaa7;
+            }
+            100% { 
+                transform: scale(20); 
+                opacity: 0;
+                box-shadow: 0 0 500px transparent;
+            }
+        }
+        
+        .hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #4ecdc4;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        .dimension-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #4ecdc4;
+            z-index: 100;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ff6b6b;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .btn:hover {
+            background: rgba(76, 205, 196, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #4ecdc4;
+        }
+        
+        .pixel-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 50;
+        }
+        
+        .pixel {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #4ecdc4;
+            box-shadow: 0 0 8px #4ecdc4;
+        }
+        
+        .reality-glitch {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 49%, #ff6b6b 50%, transparent 51%);
+            opacity: 0;
+            animation: glitch 0.1s ease-in-out;
+            pointer-events: none;
+        }
+        
+        @keyframes glitch {
+            0%, 100% { opacity: 0; transform: translateX(0); }
+            50% { opacity: 0.3; transform: translateX(10px); }
+        }
+        
+        .quantum-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: quantumTunnel 2s linear infinite;
+        }
+        
+        @keyframes quantumTunnel {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(0); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .time-portal {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 3px solid #4ecdc4;
+            border-radius: 50%;
+            background: radial-gradient(circle, transparent 40%, #4ecdc420 41%, transparent 60%);
+            animation: timeDistortion 4s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes timeDistortion {
+            0%, 100% { transform: rotate(0deg) scale(1); border-color: #4ecdc4; }
+            25% { transform: rotate(90deg) scale(1.1); border-color: #ff6b6b; }
+            50% { transform: rotate(180deg) scale(0.9); border-color: #ffeaa7; }
+            75% { transform: rotate(270deg) scale(1.05); border-color: #74b9ff; }
+        }
+        
+        .cosmic-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            animation: cosmicReveal 3s ease-in-out forwards;
+            text-shadow: 0 0 20px #4ecdc4;
+            z-index: 200;
+        }
+        
+        @keyframes cosmicReveal {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+        }
+        
+        .screenshot-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            animation: flash 0.3s ease-out;
+        }
+        
+        @keyframes flash {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .pixel-mode-indicator {
+            position: absolute;
+            top: 120px;
+            right: 20px;
+            background: rgba(255, 107, 107, 0.9);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: none;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body>
+    <div id="universe">
+        <canvas id="pixelCanvas" class="pixel-canvas"></canvas>
+        <div id="customCursor"></div>
+        
+        <div class="hud">
+            <h3>🌌 COSMIC STATS 🌌</h3>
+            <p>Dimensions: <span id="dimensions">1</span></p>
+            <p>Energy: <span id="energy">100</span></p>
+            <p>Stability: <span id="stability">100</span>%</p>
+            <p>Galaxies: <span id="galaxies">0</span></p>
+            <p>Screenshots: <span id="screenshots">0</span></p>
+        </div>
+        
+        <div class="dimension-counter">
+            DIMENSION <span id="currentDimension">α</span>
+        </div>
+        
+        <div class="pixel-mode-indicator" id="pixelModeIndicator">
+            🎨 PIXEL ART MODE ACTIVE 🎨
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="takeScreenshot()">📸 Screenshot</button>
+            <button class="btn" onclick="togglePixelMode()">🎨 Pixel Mode</button>
+            <button class="btn" onclick="clearPixelArt()">🧹 Clear Art</button>
+            <button class="btn" onclick="savePixelArt()">💾 Save Art</button>
+            <button class="btn" onclick="game.createSupernova(Math.random() * window.innerWidth, Math.random() * window.innerHeight)">💥 Supernova</button>
+            <button class="btn" onclick="game.createGalaxy(Math.random() * window.innerWidth, Math.random() * window.innerHeight)">🌌 Galaxy</button>
+            <button class="btn" onclick="game.shiftDimension()">🌀 Dimension</button>
+        </div>
+    </div>
+
+    <script>
+        class CosmicUniverse {
+            constructor() {
+                this.universe = document.getElementById('universe');
+                this.cursor = document.getElementById('customCursor');
+                this.pixelCanvas = document.getElementById('pixelCanvas');
+                this.pixelCtx = this.pixelCanvas.getContext('2d');
+                
+                // Setup canvas
+                this.pixelCanvas.width = window.innerWidth;
+                this.pixelCanvas.height = window.innerHeight;
+                
+                this.dimensions = 1;
+                this.energy = 100;
+                this.stability = 100;
+                this.galaxies = 0;
+                this.screenshots = 0;
+                this.dimensionNames = ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', 'κ', '∞'];
+                this.currentDimensionIndex = 0;
+                this.celestialObjects = [];
+                this.quantumParticles = [];
+                this.isGlitching = false;
+                this.pixelMode = false;
+                this.pixelArt = [];
+                this.currentPixelColor = '#4ecdc4';
+                this.pixelColors = ['#4ecdc4', '#ff6b6b', '#ffeaa7', '#74b9ff', '#fd79a8', '#96ceb4', '#dda0dd', '#fff'];
+                this.colorIndex = 0;
+                
+                this.setupEventListeners();
+                this.createStarField();
+                this.createInitialCelestialObjects();
+                this.startCosmicCycle();
+                this.showWelcomeMessage();
+                this.startQuantumField();
+                this.startRandomEvents();
+            }
+            
+            setupEventListeners() {
+                // Custom cursor
+                document.addEventListener('mousemove', (e) => {
+                    this.cursor.style.left = (e.clientX - 10) + 'px';
+                    this.cursor.style.top = (e.clientY - 10) + 'px';
+                    
+                    // Create quantum trail
+                    if (Math.random() < 0.3 && !this.pixelMode) {
+                        this.createQuantumParticle(e.clientX, e.clientY);
+                    }
+                    
+                    // Pixel art drawing
+                    if (this.pixelMode && e.buttons === 1) {
+                        this.drawPixel(e.clientX, e.clientY);
+                    }
+                });
+                
+                // Universe interactions
+                this.universe.addEventListener('click', (e) => {
+                    if (this.pixelMode) {
+                        this.drawPixel(e.clientX, e.clientY);
+                    } else {
+                        this.handleCosmicClick(e);
+                    }
+                });
+                
+                // Mouse down for continuous pixel drawing
+                this.universe.addEventListener('mousedown', (e) => {
+                    if (this.pixelMode) {
+                        this.isDrawing = true;
+                        this.drawPixel(e.clientX, e.clientY);
+                    }
+                });
+                
+                this.universe.addEventListener('mouseup', () => {
+                    this.isDrawing = false;
+                });
+                
+                // Keyboard controls
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key.toLowerCase()) {
+                        case ' ': 
+                            e.preventDefault(); 
+                            if (!this.pixelMode) {
+                                this.createSupernova(Math.random() * window.innerWidth, Math.random() * window.innerHeight); 
+                            }
+                            break;
+                        case 'g': this.createGalaxy(Math.random() * window.innerWidth, Math.random() * window.innerHeight); break;
+                        case 'r': this.triggerRealityGlitch(); break;
+                        case 't': this.createTimePortal(Math.random() * window.innerWidth, Math.random() * window.innerHeight); break;
+                        case 'd': this.shiftDimension(); break;
+                        case 'b': this.createBlackHole(Math.random() * window.innerWidth, Math.random() * window.innerHeight); break;
+                        case 'p': this.togglePixelMode(); break;
+                        case 'c': 
+                            if (e.ctrlKey) {
+                                e.preventDefault();
+                                this.takeScreenshot();
+                            } else {
+                                this.clearPixelArt();
+                            }
+                            break;
+                        case 's':
+                            if (e.ctrlKey) {
+                                e.preventDefault();
+                                this.takeScreenshot();
+                            }
+                            break;
+                        case 'x': this.clearPixelArt(); break;
+                        case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8':
+                            if (this.pixelMode) {
+                                this.colorIndex = parseInt(e.key) - 1;
+                                this.currentPixelColor = this.pixelColors[this.colorIndex];
+                                this.showCosmicMessage(`Color: ${this.currentPixelColor}`);
+                            }
+                            break;
+                    }
+                });
+                
+                // Dimension shift on mouse wheel
+                document.addEventListener('wheel', (e) => {
+                    if (e.deltaY > 0) {
+                        this.shiftDimension();
+                    }
+                });
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    this.pixelCanvas.width = window.innerWidth;
+                    this.pixelCanvas.height = window.innerHeight;
+                    this.redrawPixelArt();
+                });
+            }
+            
+            // PIXEL ART FUNCTIONS
+            togglePixelMode() {
+                this.pixelMode = !this.pixelMode;
+                const indicator = document.getElementById('pixelModeIndicator');
+                
+                if (this.pixelMode) {
+                    indicator.style.display = 'block';
+                    this.cursor.style.background = 'radial-gradient(circle, #ff6b6b 0%, transparent 70%)';
+                    this.cursor.style.boxShadow = '0 0 20px #ff6b6b';
+                    this.showCosmicMessage('🎨 PIXEL ART MODE ACTIVATED! 🎨<br>Click/Drag to draw!<br>Use 1-8 for colors!');
+                } else {
+                    indicator.style.display = 'none';
+                    this.cursor.style.background = 'radial-gradient(circle, #fff 0%, transparent 70%)';
+                    this.cursor.style.boxShadow = '0 0 20px #fff, 0 0 40px #4ecdc4, 0 0 60px #ff6b6b';
+                    this.showCosmicMessage('🌌 COSMIC MODE ACTIVATED! 🌌');
+                }
+            }
+            
+            drawPixel(x, y) {
+                // Snap to pixel grid
+                const pixelSize = 8;
+                const gridX = Math.floor(x / pixelSize) * pixelSize;
+                const gridY = Math.floor(y / pixelSize) * pixelSize;
+                
+                // Store pixel data
+                const pixelKey = `${gridX},${gridY}`;
+                if (!this.pixelArt.find(p => p.key === pixelKey)) {
+                    this.pixelArt.push({
+                        key: pixelKey,
+                        x: gridX,
+                        y: gridY,
+                        color: this.currentPixelColor,
+                        timestamp: Date.now()
+                    });
+                    
+                    // Draw on canvas
+                    this.pixelCtx.fillStyle = this.currentPixelColor;
+                    this.pixelCtx.fillRect(gridX, gridY, pixelSize, pixelSize);
+                    
+                    // Add glow effect
+                    this.pixelCtx.shadowColor = this.currentPixelColor;
+                    this.pixelCtx.shadowBlur = 10;
+                    this.pixelCtx.fillRect(gridX, gridY, pixelSize, pixelSize);
+                    this.pixelCtx.shadowBlur = 0;
+                }
+            }
+            
+            clearPixelArt() {
+                this.pixelArt = [];
+                this.pixelCtx.clearRect(0, 0, this.pixelCanvas.width, this.pixelCanvas.height);
+                this.showCosmicMessage('🧹 PIXEL ART CLEARED! 🧹');
+            }
+            
+            redrawPixelArt() {
+                this.pixelCtx.clearRect(0, 0, this.pixelCanvas.width, this.pixelCanvas.height);
+                const pixelSize = 8;
+                
+                this.pixelArt.forEach(pixel => {
+                    this.pixelCtx.fillStyle = pixel.color;
+                    this.pixelCtx.fillRect(pixel.x, pixel.y, pixelSize, pixelSize);
+                    
+                    // Add glow effect
+                    this.pixelCtx.shadowColor = pixel.color;
+                    this.pixelCtx.shadowBlur = 10;
+                    this.pixelCtx.fillRect(pixel.x, pixel.y, pixelSize, pixelSize);
+                    this.pixelCtx.shadowBlur = 0;
+                });
+            }
+            
+            savePixelArt() {
+                if (this.pixelArt.length === 0) {
+                    this.showCosmicMessage('❌ NO PIXEL ART TO SAVE! ❌');
+                    return;
+                }
+                
+                // Create a temporary canvas with just the pixel art
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCanvas.width = this.pixelCanvas.width;
+                tempCanvas.height = this.pixelCanvas.height;
+                
+                // Black background
+                tempCtx.fillStyle = '#000';
+                tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+                
+                // Draw pixel art
+                const pixelSize = 8;
+                this.pixelArt.forEach(pixel => {
+                    tempCtx.fillStyle = pixel.color;
+                    tempCtx.fillRect(pixel.x, pixel.y, pixelSize, pixelSize);
+                });
+                
+                // Download
+                const link = document.createElement('a');
+                link.download = `cosmic-pixel-art-${Date.now()}.png`;
+                link.href = tempCanvas.toDataURL();
+                link.click();
+                
+                this.showCosmicMessage('💾 PIXEL ART SAVED! 💾');
+            }
+            
+            // SCREENSHOT FUNCTIONS
+            takeScreenshot() {
+                // Create flash effect
+                const flash = document.createElement('div');
+                flash.className = 'screenshot-flash';
+                document.body.appendChild(flash);
+                
+                // Capture the entire universe
+                html2canvas(this.universe, {
+                    allowTaint: true,
+                    useCORS: true,
+                    scale: 1,
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    backgroundColor: null
+                }).then(canvas => {
+                    // Create download link
+                    const link = document.createElement('a');
+                    link.download = `cosmic-universe-${Date.now()}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    
+                    // Update stats
+                    this.screenshots++;
+                    this.updateStats();
+                    
+                    // Show success message
+                    this.showCosmicMessage('📸 COSMIC SCREENSHOT CAPTURED! 📸');
+                    
+                    // Add bonus effects
+                    this.energy += 25;
+                    this.createSpecialEffect();
+                }).catch(error => {
+                    console.error('Screenshot failed:', error);
+                    // Fallback method
+                    this.takeBasicScreenshot();
+                });
+                
+                // Remove flash after animation
+                setTimeout(() => {
+                    flash.remove();
+                }, 300);
+            }
+            
+            takeBasicScreenshot() {
+                // Alternative screenshot method using canvas
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                
+                // Create gradient background
+                const gradient = ctx.createRadialGradient(
+                    canvas.width/2, canvas.height/2, 0,
+                    canvas.width/2, canvas.height/2, Math.max(canvas.width, canvas.height)/2
+                );
+                gradient.addColorStop(0, '#1a1a2e');
+                gradient.addColorStop(0.5, '#16213e');
+                gradient.addColorStop(1, '#0f0f23');
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Add timestamp and info
+                ctx.fillStyle = '#4ecdc4';
+                ctx.font = 'bold 24px Courier New';
+                ctx.fillText(`🌌 COSMIC UNIVERSE - ${new Date().toLocaleString()} 🌌`, 50, 50);
+                ctx.font = '16px Courier New';
+                ctx.fillText(`Dimension: ${this.dimensionNames[this.currentDimensionIndex]} | Energy: ${this.energy} | Stability: ${this.stability}%`, 50, 80);
+                
+                // Download
+                const link = document.createElement('a');
+                link.download = `cosmic-basic-${Date.now()}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+                
+                this.screenshots++;
+                this.updateStats();
+                this.showCosmicMessage('📸 BASIC SCREENSHOT SAVED! 📸');
+            }
+            
+            createSpecialEffect() {
+                // Rainbow explosion at center
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const x = window.innerWidth / 2;
+                        const y = window.innerHeight / 2;
+                        this.createRainbowParticle(x, y, i);
+                    }, i * 20);
+                }
+            }
+            
+            createRainbowParticle(centerX, centerY, index) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.borderRadius = '50%';
+                particle.style.left = centerX + 'px';
+                particle.style.top = centerY + 'px';
+                particle.style.background = this.pixelColors[index % this.pixelColors.length];
+                particle.style.boxShadow = `0 0 15px ${this.pixelColors[index % this.pixelColors.length]}`;
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '999';
+                
+                this.universe.appendChild(particle);
+                
+                const angle = (index / 50) * Math.PI * 4;
+                const radius = index * 5;
+                const finalX = centerX + Math.cos(angle) * radius;
+                const finalY = centerY + Math.sin(angle) * radius;
+                
+                particle.style.transition = 'all 2s ease-out';
+                setTimeout(() => {
+                    particle.style.left = finalX + 'px';
+                    particle.style.top = finalY + 'px';
+                    particle.style.opacity = '0';
+                }, 50);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) particle.parentNode.removeChild(particle);
+                }, 2100);
+            }
+            
+            // REST OF THE COSMIC UNIVERSE CODE (keeping all previous functionality)
+            createStarField() {
+                for (let i = 0; i < 200; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * window.innerWidth + 'px';
+                    star.style.top = Math.random() * window.innerHeight + 'px';
+                    star.style.width = (Math.random() * 3 + 1) + 'px';
+                    star.style.height = star.style.width;
+                    star.style.animationDelay = Math.random() * 2 + 's';
+                    this.universe.appendChild(star);
+                }
+            }
+            
+            createInitialCelestialObjects() {
+                for (let i = 0; i < 5; i++) this.createPlanet();
+                for (let i = 0; i < 3; i++) this.createWormhole();
+                for (let i = 0; i < 8; i++) this.createEnergyOrb();
+            }
+            
+            createPlanet() {
+                const planet = document.createElement('div');
+                planet.className = 'planet';
+                const size = Math.random() * 60 + 30;
+                planet.style.width = size + 'px';
+                planet.style.height = size + 'px';
+                planet.style.left = Math.random() * (window.innerWidth - size) + 'px';
+                planet.style.top = Math.random() * (window.innerHeight - size) + 'px';
+                
+                const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#74b9ff', '#fd79a8'];
+                const color1 = colors[Math.floor(Math.random() * colors.length)];
+                const color2 = colors[Math.floor(Math.random() * colors.length)];
+                planet.style.background = `radial-gradient(circle at 30% 30%, ${color1}, ${color2})`;
+                planet.style.boxShadow = `0 0 30px ${color1}`;
+                
+                planet.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.explodePlanet(planet);
+                });
+                
+                this.universe.appendChild(planet);
+                this.celestialObjects.push(planet);
+            }
+            
+            createWormhole() {
+                const wormhole = document.createElement('div');
+                wormhole.className = 'wormhole';
+                wormhole.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+                wormhole.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+                
+                wormhole.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.enterWormhole(wormhole);
+                });
+                
+                this.universe.appendChild(wormhole);
+                this.celestialObjects.push(wormhole);
+            }
+            
+            createEnergyOrb() {
+                const orb = document.createElement('div');
+                orb.className = 'energy-orb';
+                orb.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+                orb.style.top = Math.random() * (window.innerHeight - 30) + 'px';
+                
+                orb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.collectEnergyOrb(orb);
+                });
+                
+                this.universe.appendChild(orb);
+                this.celestialObjects.push(orb);
+            }
+            
+            createBlackHole(x, y) {
+                const blackHole = document.createElement('div');
+                blackHole.className = 'black-hole';
+                blackHole.style.left = (x - 40) + 'px';
+                blackHole.style.top = (y - 40) + 'px';
+                
+                blackHole.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.activateBlackHole(blackHole);
+                });
+                
+                this.universe.appendChild(blackHole);
+                this.celestialObjects.push(blackHole);
+            }
+            
+            createGalaxy(x, y) {
+                const galaxy = document.createElement('div');
+                galaxy.className = 'galaxy';
+                galaxy.style.left = (x - 75) + 'px';
+                galaxy.style.top = (y - 75) + 'px';
+                
+                this.universe.appendChild(galaxy);
+                this.galaxies++;
+                this.updateStats();
+                
+                setTimeout(() => {
+                    if (galaxy.parentNode) galaxy.parentNode.removeChild(galaxy);
+                }, 10000);
+            }
+            
+            createSupernova(x, y) {
+                const supernova = document.createElement('div');
+                supernova.className = 'supernova';
+                supernova.style.left = (x - 25) + 'px';
+                supernova.style.top = (y - 25) + 'px';
+                supernova.style.width = '50px';
+                supernova.style.height = '50px';
+                
+                this.universe.appendChild(supernova);
+                this.energy += 25;
+                this.updateStats();
+                
+                this.createShockwave(x, y);
+                
+                setTimeout(() => {
+                    if (supernova.parentNode) supernova.parentNode.removeChild(supernova);
+                }, 3000);
+            }
+            
+            createTimePortal(x, y) {
+                const portal = document.createElement('div');
+                portal.className = 'time-portal';
+                portal.style.left = (x - 60) + 'px';
+                portal.style.top = (y - 60) + 'px';
+                
+                portal.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.activateTimePortal(portal);
+                });
+                
+                this.universe.appendChild(portal);
+                
+                setTimeout(() => {
+                    if (portal.parentNode) portal.parentNode.removeChild(portal);
+                }, 8000);
+            }
+            
+            createQuantumParticle(x, y) {
+                const particle = document.createElement('div');
+                particle.className = 'quantum-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                
+                this.universe.appendChild(particle);
+                this.quantumParticles.push(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) particle.parentNode.removeChild(particle);
+                    this.quantumParticles = this.quantumParticles.filter(p => p !== particle);
+                }, 2000);
+            }
+            
+            createShockwave(x, y) {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const wave = document.createElement('div');
+                        wave.style.position = 'absolute';
+                        wave.style.left = (x - 5) + 'px';
+                        wave.style.top = (y - 5) + 'px';
+                        wave.style.width = '10px';
+                        wave.style.height = '10px';
+                        wave.style.border = '2px solid #ff6b6b';
+                        wave.style.borderRadius = '50%';
+                        wave.style.animation = 'none';
+                        
+                        this.universe.appendChild(wave);
+                        
+                        wave.style.transition = 'all 2s ease-out';
+                        setTimeout(() => {
+                            wave.style.width = '400px';
+                            wave.style.height = '400px';
+                            wave.style.left = (x - 200) + 'px';
+                            wave.style.top = (y - 200) + 'px';
+                            wave.style.opacity = '0';
+                        }, 50);
+                        
+                        setTimeout(() => {
+                            if (wave.parentNode) wave.parentNode.removeChild(wave);
+                        }, 2100);
+                    }, i * 100);
+                }
+            }
+            
+            handleCosmicClick(e) {
+                const effects = [
+                    () => this.createSupernova(e.clientX, e.clientY),
+                    () => this.createGalaxy(e.clientX, e.clientY),
+                    () => this.createBlackHole(e.clientX, e.clientY),
+                    () => this.createTimePortal(e.clientX, e.clientY),
+                    () => this.createDimensionalRift(e.clientX, e.clientY)
+                ];
+                
+                const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+                randomEffect();
+            }
+            
+            createDimensionalRift(x, y) {
+                const rift = document.createElement('div');
+                rift.className = 'dimensional-rift';
+                rift.style.left = (x - 100) + 'px';
+                rift.style.top = (y - 2.5) + 'px';
+                rift.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                this.universe.appendChild(rift);
+                
+                setTimeout(() => {
+                    if (rift.parentNode) rift.parentNode.removeChild(rift);
+                }, 4000);
+            }
+            
+            explodePlanet(planet) {
+                for (let i = 0; i < 15; i++) {
+                    const fragment = document.createElement('div');
+                    fragment.style.position = 'absolute';
+                    fragment.style.left = planet.style.left;
+                    fragment.style.top = planet.style.top;
+                    fragment.style.width = '8px';
+                    fragment.style.height = '8px';
+                    fragment.style.background = planet.style.background;
+                    fragment.style.borderRadius = '50%';
+                    
+                    const angle = (i / 15) * Math.PI * 2;
+                    const velocity = 100 + Math.random() * 100;
+                    const vx = Math.cos(angle) * velocity;
+                    const vy = Math.sin(angle) * velocity;
+                    
+                    this.universe.appendChild(fragment);
+                    this.animateFragment(fragment, vx, vy);
+                }
+                
+                planet.remove();
+                this.energy += 15;
+                this.updateStats();
+                
+                setTimeout(() => this.createPlanet(), 2000);
+            }
+            
+            enterWormhole(wormhole) {
+                this.shiftDimension();
+                this.energy += 30;
+                this.updateStats();
+                
+                wormhole.remove();
+                setTimeout(() => this.createWormhole(), 3000);
+            }
+            
+            collectEnergyOrb(orb) {
+                this.energy += 10;
+                this.updateStats();
+                
+                orb.style.animation = 'none';
+                orb.style.transform = 'scale(2)';
+                orb.style.opacity = '0';
+                
+                setTimeout(() => orb.remove(), 300);
+                setTimeout(() => this.createEnergyOrb(), 1000);
+            }
+            
+            activateBlackHole(blackHole) {
+                this.celestialObjects.forEach(obj => {
+                    if (obj !== blackHole && obj.parentNode) {
+                        const objRect = obj.getBoundingClientRect();
+                        const blackHoleRect = blackHole.getBoundingClientRect();
+                        const distance = Math.sqrt(
+                            Math.pow(objRect.left - blackHoleRect.left, 2) + 
+                            Math.pow(objRect.top - blackHoleRect.top, 2)
+                        );
+                        
+                        if (distance < 200) {
+                            obj.style.transition = 'all 2s ease-in';
+                            obj.style.left = blackHoleRect.left + 'px';
+                            obj.style.top = blackHoleRect.top + 'px';
+                            obj.style.transform = 'scale(0)';
+                            setTimeout(() => obj.remove(), 2000);
+                        }
+                    }
+                });
+                
+                this.energy -= 20;
+                this.stability -= 10;
+                this.updateStats();
+            }
+            
+            activateTimePortal(portal) {
+                this.dimensions++;
+                this.shiftDimension();
+                this.energy += 50;
+                this.updateStats();
+                
+                this.showCosmicMessage('⏰ TIME PARADOX ACTIVATED! ⏰');
+                portal.remove();
+            }
+            
+            shiftDimension() {
+                this.currentDimensionIndex = (this.currentDimensionIndex + 1) % this.dimensionNames.length;
+                document.getElementById('currentDimension').textContent = this.dimensionNames[this.currentDimensionIndex];
+                
+                const colors = [
+                    'radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)',
+                    'radial-gradient(circle at center, #2e1a1a 0%, #3e1621 50%, #230f0f 100%)',
+                    'radial-gradient(circle at center, #1a2e1a 0%, #162138 50%, #0f230f 100%)',
+                    'radial-gradient(circle at center, #2e2e1a 0%, #383821 50%, #23230f 100%)',
+                    'radial-gradient(circle at center, #2e1a2e 0%, #3e1638 50%, #230f23 100%)'
+                ];
+                
+                this.universe.style.background = colors[this.currentDimensionIndex % colors.length];
+                this.triggerRealityGlitch();
+            }
+            
+            triggerRealityGlitch() {
+                if (this.isGlitching) return;
+                this.isGlitching = true;
+                
+                const glitch = document.createElement('div');
+                glitch.className = 'reality-glitch';
+                this.universe.appendChild(glitch);
+                
+                setTimeout(() => {
+                    glitch.remove();
+                    this.isGlitching = false;
+                }, 100);
+                
+                this.stability -= 5;
+                if (this.stability < 0) this.stability = 0;
+                this.updateStats();
+            }
+            
+            startCosmicCycle() {
+                setInterval(() => {
+                    this.energy = Math.min(this.energy + 2, 999);
+                    this.stability = Math.min(this.stability + 1, 100);
+                    this.updateStats();
+                }, 1000);
+            }
+            
+            startQuantumField() {
+                setInterval(() => {
+                    if (Math.random() < 0.3 && !this.pixelMode) {
+                        this.createQuantumParticle(
+                            Math.random() * window.innerWidth,
+                            Math.random() * window.innerHeight
+                        );
+                    }
+                }, 500);
+            }
+            
+            startRandomEvents() {
+                setInterval(() => {
+                    const events = [
+                        () => this.createSupernova(Math.random() * window.innerWidth, Math.random() * window.innerHeight),
+                        () => this.createGalaxy(Math.random() * window.innerWidth, Math.random() * window.innerHeight),
+                        () => this.triggerRealityGlitch(),
+                        () => this.createTimePortal(Math.random() * window.innerWidth, Math.random() * window.innerHeight)
+                    ];
+                    
+                    if (Math.random() < 0.1 && !this.pixelMode) {
+                        const randomEvent = events[Math.floor(Math.random() * events.length)];
+                        randomEvent();
+                    }
+                }, 3000);
+            }
+            
+            showWelcomeMessage() {
+                this.showCosmicMessage('🌌 WELCOME TO THE INFINITE COSMOS 🌌');
+                
+                setTimeout(() => {
+                    this.showCosmicMessage('🎮 CONTROLS:<br>CLICK = Create | P = Pixel Mode | SPACE = Supernova<br>G = Galaxy | R = Glitch | T = Time Portal | D = Dimension<br>B = Black Hole | C = Clear | Ctrl+C = Screenshot');
+                }, 4000);
+            }
+            
+            showCosmicMessage(text) {
+                const message = document.createElement('div');
+                message.className = 'cosmic-message';
+                message.innerHTML = text;
+                this.universe.appendChild(message);
+                
+                setTimeout(() => {
+                    if (message.parentNode) message.parentNode.removeChild(message);
+                }, 3000);
+            }
+            
+            animateFragment(fragment, vx, vy) {
+                let x = parseFloat(fragment.style.left);
+                let y = parseFloat(fragment.style.top);
+                let opacity = 1;
+                
+                const animate = () => {
+                    x += vx * 0.02;
+                    y += vy * 0.02;
+                    opacity -= 0.02;
+                    
+                    fragment.style.left = x + 'px';
+                    fragment.style.top = y + 'px';
+                    fragment.style.opacity = opacity;
+                    
+                    if (opacity > 0) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        fragment.remove();
+                    }
+                };
+                
+                animate();
+            }
+            
+            updateStats() {
+                document.getElementById('dimensions').textContent = this.dimensions;
+                document.getElementById('energy').textContent = this.energy;
+                document.getElementById('stability').textContent = this.stability;
+                document.getElementById('galaxies').textContent = this.galaxies;
+                document.getElementById('screenshots').textContent = this.screenshots;
+            }
+        }
+        
+        // Global functions for buttons
+        let game;
+        
+        function takeScreenshot() {
+            game.takeScreenshot();
+        }
+        
+        function togglePixelMode() {
+            game.togglePixelMode();
+        }
+        
+        function clearPixelArt() {
+            game.clearPixelArt();
+        }
+        
+        function savePixelArt() {
+            game.savePixelArt();
+        }
+        
+        // Initialize the cosmic universe
+        window.addEventListener('load', () => {
+            game = new CosmicUniverse();
+        });
+    </script>
+    
+    <!-- HTML2Canvas Library for Screenshots -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
