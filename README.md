@@ -4,7 +4,7 @@ An interactive cosmic experience combining space exploration with pixel art crea
 
 ## 🌐 Live Demo
 
-**🚀 [Experience the Cosmic Universe Live!](https://alimahdicosmic.netlify.app)**
+**🚀 [Experience the Cosmic Universe Live!](https://alimahdicosmo.netlify.app)**
 
 *Visit the interactive cosmic simulator in your browser - no installation required!*
 
@@ -97,7 +97,7 @@ Track your cosmic journey:
 ## 🚀 Getting Started
 
 ### 🌐 Online (Recommended)
-1. Visit **[alimahdicosmic.netlify.app](https://alimahdicosmic.netlify.app)**
+1. Visit **[alimahdicosmic.netlify.app](https://alimahdicosmo.netlify.app)**
 2. Click anywhere to start creating cosmic phenomena
 3. Press **P** to enter Pixel Art Mode
 4. Use number keys **1-8** to select colors
@@ -159,7 +159,7 @@ Track your cosmic journey:
 
 ## 🔗 Links
 
-- **🌐 Live Demo**: [alimahdicosmic.netlify.app](https://alimahdicosmic.netlify.app)
+- **🌐 Live Demo**: [alimahdicosmic.netlify.app](https://alimahdicosmo.netlify.app)
 - **📱 Mobile Friendly**: Works on phones and tablets
 - **🖥️ Desktop Optimized**: Best experience on desktop browsers
 
