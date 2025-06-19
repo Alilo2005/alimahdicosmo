@@ -2,6 +2,14 @@
 
 An interactive cosmic experience combining space exploration with pixel art creation. Explore infinite dimensions, create cosmic phenomena, and unleash your creativity with integrated pixel art tools!
 
+## 🌐 Live Demo
+
+**🚀 [Experience the Cosmic Universe Live!](https://alimahdicosmic.netlify.app)**
+
+*Visit the interactive cosmic simulator in your browser - no installation required!*
+
+---
+
 ## ✨ Features
 
 ### 🌌 Cosmic Universe
@@ -88,12 +96,18 @@ Track your cosmic journey:
 
 ## 🚀 Getting Started
 
-1. Open [`surpise.html`](surpise.html) in any modern web browser
+### 🌐 Online (Recommended)
+1. Visit **[alimahdicosmic.netlify.app](https://alimahdicosmic.netlify.app)**
 2. Click anywhere to start creating cosmic phenomena
 3. Press **P** to enter Pixel Art Mode
 4. Use number keys **1-8** to select colors
 5. Take screenshots with **📸** button or **Ctrl+C**
 6. Explore different dimensions with **D** key
+
+### 💻 Local Development
+1. Clone this repository
+2. Open `index.html` in any modern web browser
+3. Enjoy the cosmic experience!
 
 ## 🎯 Interactive Elements
 
@@ -124,6 +138,7 @@ Track your cosmic journey:
 - **Responsive Design**: Works on all screen sizes
 - **No Dependencies**: Pure HTML/CSS/JavaScript (except html2canvas for screenshots)
 - **Cross-browser**: Compatible with modern browsers
+- **Netlify Hosting**: Fast, reliable global CDN delivery
 
 ## 🎪 Special Effects
 
@@ -142,8 +157,16 @@ Track your cosmic journey:
 - Create pixel art in different dimensions
 - Take screenshots during cosmic events
 
+## 🔗 Links
+
+- **🌐 Live Demo**: [alimahdicosmic.netlify.app](https://alimahdicosmic.netlify.app)
+- **📱 Mobile Friendly**: Works on phones and tablets
+- **🖥️ Desktop Optimized**: Best experience on desktop browsers
+
 ---
 
 **Created with ❤️ for cosmic explorers and pixel artists!**
 
 🌌 *"In the infinite cosmos, every pixel tells a story..."* 🎨
+
+**[🚀 Launch into the Cosmic Universe Now!](https://alimahdicosmic.netlify.app)**
